@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18E9D943-4CDB-492A-8239-1415C8C9411E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArcGISRestToolkit</RootNamespace>
+    <AssemblyName>ArcGISRestToolkit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\LocalPersistTokenDAO.cs" />
+    <Compile Include="Helper\Rijndael.cs" />
+    <Compile Include="Helper\ILocalPersistTokenDAO.cs" />
+    <Compile Include="Helper\UnixDateTimeConverters.cs" />
+    <Compile Include="Helper\Json.cs" />
+    <Compile Include="Models\AGOToken\AGOTokenManagerParams.cs" />
+    <Compile Include="Models\RestAPI\IRestAPIReadOperationResponse.cs" />
+    <Compile Include="Models\RestAPI\RestAPIReadOperationResponse.cs" />
+    <Compile Include="Models\RestAPI\IRestAPIFeature.cs" />
+    <Compile Include="Models\RestAPI\RestAPIFeature.cs" />
+    <Compile Include="Models\RestAPI\IRestAPIAttribute.cs" />
+    <Compile Include="Models\RestAPI\IRestAPIGeometry.cs" />
+    <Compile Include="Models\Geometries\GeometryHelper.cs" />
+    <Compile Include="Models\Geometries\Multipoint.cs" />
+    <Compile Include="Models\RestAPI\GeometryService\GeometryServiceGeometryList.cs" />
+    <Compile Include="Models\RestAPI\RestAPIAddOperationResponse.cs" />
+    <Compile Include="Models\RestAPI\RestAPIDeleteOperationResponse.cs" />
+    <Compile Include="Models\AGOToken\AGOTokenManagerResponse.cs" />
+    <Compile Include="Models\RestAPI\RestAPIOperationResponseBase.cs" />
+    <Compile Include="Models\RestAPI\RestAPIOperationResponseError.cs" />
+    <Compile Include="Models\RestAPI\RestAPIQueryCountOnlyResponse.cs" />
+    <Compile Include="Models\RestAPI\RestAPIQueryIDsOnlyResponse.cs" />
+    <Compile Include="Models\RestAPI\RestAPIResponseErrorDetail.cs" />
+    <Compile Include="Models\RestAPI\RestAPIResponseError.cs" />
+    <Compile Include="Models\RestAPI\RestAPIUpdateOperationResponse.cs" />
+    <Compile Include="Models\Geometries\Envelope.cs" />
+    <Compile Include="Models\Geometries\Polyline.cs" />
+    <Compile Include="Models\Geometries\Path.cs" />
+    <Compile Include="Models\Geometries\Field.cs" />
+    <Compile Include="Models\Geometries\Point.cs" />
+    <Compile Include="Models\Geometries\Polygon.cs" />
+    <Compile Include="Models\Geometries\Ring.cs" />
+    <Compile Include="Models\Geometries\SimplePoint.cs" />
+    <Compile Include="Models\Geometries\SpatialReference.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\ErrorMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RestAPIConnectors\APITokenManager\AGOTokenConnector.cs" />
+    <Compile Include="RestAPIConnectors\APITokenManager\AGOTokenManager.cs" />
+    <Compile Include="RestAPIConnectors\APITokenManager\IAGOTokenManager.cs" />
+    <Compile Include="RestAPIConnectors\APITokenManager\IAGOTokenConnector.cs" />
+    <Compile Include="RestAPIConnectors\RestAPIFeatureServiceConnector.cs" />
+    <Compile Include="RestAPIConnectors\IRestAPIFeatureServiceConnector.cs" />
+    <Compile Include="RestAPIConnectors\RestAPIGeometryServices.cs" />
+    <Compile Include="RestAPIConnectors\IRestAPIGeometryServices.cs" />
+    <Compile Include="RestAPIConnectors\RestAPIBaseWebRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\ErrorMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
