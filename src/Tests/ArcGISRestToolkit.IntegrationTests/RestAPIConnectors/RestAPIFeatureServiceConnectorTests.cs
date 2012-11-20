@@ -107,6 +107,22 @@
 			result2.Count.Should().Be(0);
 		}
 
+		//[Test]
+		public void DeleteAllItems()
+		{
+			var restAPIConnector = new RestAPIFeatureServiceConnector<RestAPIFeature<Polygon, RestAPITestAttributeModel>, Polygon, RestAPITestAttributeModel>(TEST_FEATURE_URL);
+			var result = restAPIConnector.QueryFeaturesIDsOnly("0=0");
+			
+			List<RestAPIOperationResponseBase> responseList;
+			var deleteResult = restAPIConnector.DeleteFeatures(result.ObjectIDs, out responseList);
+			deleteResult.Should().Be(true);
+			responseList.Should().Not.Be.Null();
+			responseList.Count.Should().Be.GreaterThan(0);
+
+			var result2 = restAPIConnector.QueryFeaturesIDsOnly("0=0");
+			result2.ObjectIDs.Count.Should().Be(0);
+		}
+
 		#endregion
 
 		#region Auxiliary Methods

@@ -76,7 +76,7 @@
 			if (whereClause == null) { throw new ArgumentNullException("whereClause"); }
 			if (whereClause == string.Empty) { throw new ArgumentException(ErrorMessages.msgFeatureServiceConnector_Error_BlankWhereClause, "whereClause"); }
 
-			var httpWebResponse = QueryFeaturesBase(string.Empty, whereClause, string.Empty, false, true, false);
+			var httpWebResponse = QueryFeaturesBase(string.Empty, whereClause, string.Empty, false, false, true);
 			if (httpWebResponse != null)
 			{
 				var result = Json.Deserialize<RestAPIQueryIDsOnlyResponse>(httpWebResponse);
